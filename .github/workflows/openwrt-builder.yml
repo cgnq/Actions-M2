@@ -27,7 +27,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-
+permissions: write-all
 jobs:
   build:
     runs-on: ubuntu-20.04
