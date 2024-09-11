@@ -13,6 +13,9 @@
 name: ZN-M2 OpenWrt
 
 on:
+  #自动编译：每天早上4点
+  schedule:
+    - cron: 10 15 * * 5
   repository_dispatch:
   workflow_dispatch:
 
