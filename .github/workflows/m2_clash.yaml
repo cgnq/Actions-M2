@@ -13,6 +13,8 @@
 name: ZN-M2_clash OpenWrt
 
 on:
+  schedule:
+    - cron: 10 15 * * *
   repository_dispatch:
   workflow_dispatch:
 
