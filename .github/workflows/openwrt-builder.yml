@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: ZN-M2_clash OpenWrt
+name: ZN-M2_clash_immortalwrt OpenWrt
 
 on:
   schedule:
