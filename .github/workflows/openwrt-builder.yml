@@ -10,21 +10,19 @@
 # See /LICENSE for more information.
 #
 
-name: ZN-M2 OpenWrt
+name: ZN-M2_clash OpenWrt
 
 on:
-  #自动编译：每天早上4点
   schedule:
-    - cron: 10 15 * * 5
     - cron: 10 15 * * *
   repository_dispatch:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/King-Of-Knights/openwrt-6.x
+  REPO_URL: https://github.com/VIKINGYFY/immortalwrt
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config
+  CONFIG_FILE: config/.config_clash
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
