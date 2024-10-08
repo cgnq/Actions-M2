@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: ZN-M2_clash OpenWrt
+name: AX18_clash_immortalwrt OpenWrt
 
 on:
   schedule:
@@ -19,10 +19,10 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/King-Of-Knights/openwrt-6.x
+  REPO_URL: https://github.com/VIKINGYFY/immortalwrt
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/.config_clash
+  CONFIG_FILE: .config_clash
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -162,10 +162,10 @@ jobs:
       uses: softprops/action-gh-release@master
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.OPENWRT }}
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
-        body: home and wrt
+        body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
     - name: Delete workflow runs
@@ -175,10 +175,10 @@ jobs:
         keep_minimum_runs: 2
 
     - name: Remove old Releases
-     uses: dev-drprasad/delete-older-releases@master
-     if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-     with:
-       keep_latest: 2
-       delete_tags: true
-     env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: dev-drprasad/delete-older-releases@master
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        keep_latest: 2
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
